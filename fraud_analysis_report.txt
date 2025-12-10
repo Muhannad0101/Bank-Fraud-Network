@@ -1,0 +1,73 @@
+Cross-Bank Fraud Analysis Report
+Date: 2025-06-23
+
+I. Analysis Overview
+--------------------
+This report details the findings from an investigation into cross-bank fraud activities 
+centered around a compromised device (91b12379-8...) and user account 
+(0007f26556...). The analysis involved:
+
+1. Data enrichment of IP and User Agent information
+2. Network graph construction of device-user relationships
+3. Identification of connected fraudulent entities
+4. Visualization of the fraud network
+
+Key Statistics:
+- Total devices analyzed: 169
+- Total user accounts: 333
+- Total IP subnets: 145
+- Accounts linked to compromised device: 332
+- Devices linked to compromised account: 167
+
+II. Key Findings
+----------------
+A. Compromised Account Details:
+   - Bank: Bank8
+   - Associated devices: 167
+
+B. Fraud Connection Patterns:
+   - The fraud network spans 641 entities (167 devices, 332 users, 142 subnets)
+   - Connections were established through:
+        * Direct device-user usage
+        * Shared device fingerprints
+        * Identical device profiles
+        * Common IP subnets
+
+C. Device Profile Analysis:
+   The most common device profiles in the fraud network:
+       1. Android_Chrome_(780, 360, 24) (416 occurrences)
+       2. Android_Chrome_(960, 600, 24) (242 occurrences)
+       3. Mac_Chrome_(1440, 900, 24) (212 occurrences)
+
+D. Location Analysis:
+   The most frequently used IP subnets:
+       1. 176.59.32.0/20 (259 devices)
+       2. 109.197.204.0/22 (206 devices)
+       3. 185.97.200.0/22 (79 devices)
+
+III. Recommendations
+--------------------
+1. Immediate blocking of high-risk subnets:
+   - 176.59.32.0/20
+   - 109.197.204.0/22
+
+2. Enhanced monitoring for devices matching common profiles:
+   - Profile: Android_Chrome_(780, 360, 24)
+   - Profile: Android_Chrome_(960, 600, 24)
+
+3. Cross-bank coordination for accounts:
+   - 0007f26556... (Bank Bank8)
+
+IV. Visual Evidence
+-------------------
+The fraud network visualization shows:
+   - the Red squares: Device nodes (each DEV:<device_id>) With Country, City, OS and Browser
+   - the blue circles: User nodes (each USR:<identity>) With Country, City, OS and Browser
+   - An edge between a square and a circle indicates a “logged_in” relation (i.e., that device accessed that user account)
+
+See attached fraud_network.html for interactive visualization.
+
+Conclusion
+----------
+The analysis revealed a coordinated fraud operation using 167 devices across 1 banks. 
+The operation shows sophisticated use of device spoofing techniques and IP rotation.
